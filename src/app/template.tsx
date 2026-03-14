@@ -1,4 +1,4 @@
-// app/[locale]/template.tsx
+// app/template.tsx
 "use client";
 
 import { motion } from "framer-motion";

@@ -7,7 +7,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { fadeDown, transitions } from "@/lib/motion";
 import { MagneticButton } from "@/components/common/MagneticButton";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
-import { LanguageSwitcher } from "@/components/common/LanguageSwitcher";
 import { Link } from "@/i18n/routing";
 import { getWhatsAppLink } from "@/lib/constants";
 
@@ -33,9 +32,7 @@ export function Navbar({ loaded }: NavbarProps) {
 
   const logoLetters = "DROPINK".split("");
 
-  const whatsappMessage = t("cta").includes("Hubungi")
-    ? "Halo DROPINK, saya ingin berdiskusi tentang proyek saya."
-    : "Hello DROPINK, I'd like to discuss my project.";
+  const whatsappMessage = "Halo DROPINK, saya ingin berdiskusi tentang proyek saya.";
 
   return (
     <motion.nav
@@ -77,9 +74,8 @@ export function Navbar({ loaded }: NavbarProps) {
             <NavLink href="/#services">{t("services")}</NavLink>
             <NavLink href="/#projects">{t("projects")}</NavLink>
             <NavLink href="/#about">{t("about")}</NavLink>
-            
+
             <div className="flex items-center gap-4 ml-4 pl-4 border-l border-g4">
-              <LanguageSwitcher />
               <ThemeToggle />
             </div>
 
@@ -98,7 +94,6 @@ export function Navbar({ loaded }: NavbarProps) {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-4">
-            <LanguageSwitcher />
             <ThemeToggle />
           </div>
         </div>

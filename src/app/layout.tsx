@@ -1,12 +1,10 @@
-// app/[locale]/layout.tsx
+// app/layout.tsx
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
 import { Providers } from "@/components/providers/Providers";
 import { CustomCursor } from "@/components/common/CustomCursor";
 import { SITE_CONFIG } from "@/lib/constants";
-import "../globals.css";
+import "./globals.css";
 
 // Google Fonts
 import { Bebas_Neue, Cormorant_Garamond, DM_Mono } from "next/font/google";
@@ -32,48 +30,30 @@ const dmMono = DM_Mono({
   display: "swap",
 });
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
-
-export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale } = await params;
-  
+export async function generateMetadata() {
   return {
     metadataBase: SITE_CONFIG.metadataBase,
     title: `${SITE_CONFIG.name} — Architectural Design`,
-    description: locale === "id"
-      ? "Studio arsitektur premium berbasis di Indonesia."
-      : "Premium architecture studio based in Indonesia.",
+    description: "Studio arsitektur premium berbasis di Indonesia.",
     openGraph: {
       title: SITE_CONFIG.name,
-      description: locale === "id"
-        ? "Studio arsitektur premium berbasis di Indonesia."
-        : "Premium architecture studio based in Indonesia.",
+      description: "Studio arsitektur premium berbasis di Indonesia.",
       images: [SITE_CONFIG.ogImage],
+      locale: "id_ID",
     },
   };
 }
 
-export default async function LocaleLayout({
+export default async function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
-
-  // Validate locale
-  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
-    notFound();
-  }
-
-  // Get messages for the locale
+  // Get messages for Indonesian
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning={true}>
+    <html lang="id" suppressHydrationWarning={true}>
       <body className={`${bebas.variable} ${cormorant.variable} ${dmMono.variable} font-body antialiased`} suppressHydrationWarning={true}>
         <NextIntlClientProvider messages={messages}>
           {/* Grain and Grid Overlays */}

@@ -1,7 +1,7 @@
 // components/sections/Projects.tsx
 "use client";
 
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { motion, Variants } from "framer-motion";
 import { viewport } from "@/lib/motion";
 import { SplitText } from "@/components/common/SplitText";
@@ -11,12 +11,16 @@ import { useState, useRef, useEffect } from "react";
 
 export function Projects() {
   const t = useTranslations("projects");
-  const locale = useLocale();
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  // Get slugs based on locale
-  const slugs = t.raw("slugs") as Record<string, string>;
+  // Slugs for Indonesian locale
+  const slugs = {
+    houseModern: "rumah-modern",
+    luxuryHome: "rumah-mewah",
+    livingRoom: "ruang-tamu",
+    staircaseDining: "tangga-makan",
+  };
 
   const projects = [
     {

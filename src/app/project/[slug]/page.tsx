@@ -1,7 +1,7 @@
-// app/[locale]/project/[slug]/page.tsx
+// app/project/[slug]/page.tsx
 "use client";
 
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { pageTransition } from "@/lib/motion";
 import { Navbar } from "@/components/layout/Navbar";
@@ -14,10 +14,14 @@ export default function ProjectDetailPage() {
   const params = useParams();
   const slug = params?.slug as string;
   const t = useTranslations("projects");
-  const locale = useLocale();
 
-  // Get slugs based on locale
-  const slugs = t.raw("slugs") as Record<string, string>;
+  // Get slugs for Indonesian locale
+  const slugs = {
+    houseModern: "rumah-modern",
+    luxuryHome: "rumah-mewah",
+    livingRoom: "ruang-tamu",
+    staircaseDining: "tangga-makan",
+  };
 
   // Project data with translations
   const projectData: Record<string, {
