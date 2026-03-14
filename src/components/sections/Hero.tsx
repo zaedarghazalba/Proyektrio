@@ -48,7 +48,7 @@ export function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-8 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-6 md:px-8 max-w-5xl mx-auto">
         {/* Line 1 */}
         <motion.div
           variants={clipRevealUp}
@@ -57,7 +57,7 @@ export function Hero() {
           transition={{ delay: 0.1, duration: 1.0 }}
           className="overflow-hidden"
         >
-          <h1 className="font-display text-display-lg md:text-display-xl text-white uppercase tracking-wider mb-2">
+          <h1 className="font-display text-[13vw] md:text-display-lg lg:text-display-xl text-white uppercase tracking-wider mb-2 leading-none">
             {t("line1")}
           </h1>
         </motion.div>
@@ -70,7 +70,7 @@ export function Hero() {
           transition={{ delay: 0.3, duration: 1.0 }}
           className="overflow-hidden"
         >
-          <h1 className="font-display text-display-lg md:text-display-xl text-white uppercase tracking-wider mb-6">
+          <h1 className="font-display text-[13vw] md:text-display-lg lg:text-display-xl text-white uppercase tracking-wider mb-6 leading-none">
             {t("line2")}
           </h1>
         </motion.div>
@@ -83,7 +83,7 @@ export function Hero() {
           transition={{ delay: 0.5, duration: 1.0 }}
           className="overflow-hidden"
         >
-          <p className="font-body text-body-xl md:text-body-2xl text-g6 italic max-w-2xl mx-auto mb-12">
+          <p className="font-body text-base md:text-body-xl lg:text-body-2xl text-g6 italic max-w-2xl mx-auto mb-8 md:mb-12 px-2">
             {t("line3")}
           </p>
         </motion.div>
@@ -98,7 +98,7 @@ export function Hero() {
             <a
               href="#projects"
               data-cursor="hover"
-              className="inline-block px-10 py-4 bg-white text-black font-mono text-label-md uppercase tracking-wider hover:bg-g6 transition-colors duration-300"
+              className="inline-block px-6 py-3 md:px-10 md:py-4 bg-white text-black font-mono text-xs md:text-label-md uppercase tracking-wider hover:bg-g6 transition-colors duration-300"
             >
               {t("line3").includes("struktur") ? "Lihat Karya" : "View Works"}
             </a>

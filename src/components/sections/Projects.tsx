@@ -7,12 +7,13 @@ import { viewport } from "@/lib/motion";
 import { SplitText } from "@/components/common/SplitText";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export function Projects() {
   const t = useTranslations("projects");
   const locale = useLocale();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Get slugs based on locale
   const slugs = t.raw("slugs") as Record<string, string>;
@@ -56,6 +57,29 @@ export function Projects() {
     setCurrentIndex((prev) => Math.max(prev - 1, 0));
   };
 
+  // Handle scroll to update current index
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollWidth = container.scrollWidth;
+      const clientWidth = container.clientWidth;
+      const scrollLeft = container.scrollLeft;
+      
+      // Calculate which slide is visible
+      const slideWidth = clientWidth;
+      const newIndex = Math.round(scrollLeft / slideWidth);
+      
+      if (newIndex !== currentIndex && newIndex >= 0 && newIndex <= 1) {
+        setCurrentIndex(newIndex);
+      }
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [currentIndex]);
+
   const projectCardVariants: Variants = {
     hidden: { opacity: 0, scale: 0.96, y: 30 },
     visible: {
@@ -87,17 +111,17 @@ export function Projects() {
         </motion.div>
 
         {/* Projects Slider */}
-        <div className="relative">
-          <div className="overflow-hidden">
-            <motion.div
-              className="flex gap-4 md:gap-6 lg:gap-8"
-              animate={{ x: `-${currentIndex * (100 / 3)}%` }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            >
+        <div className="relative w-full">
+          <div 
+            ref={scrollContainerRef}
+            className="overflow-x-auto scrollbar-hide snap-x snap-mandatory scroll-smooth"
+            style={{ WebkitOverflowScrolling: 'touch' }}
+          >
+            <div className="flex gap-4 md:gap-6 lg:gap-8 w-full">
               {projects.map((project, i) => (
                 <div
                   key={i}
-                  className="flex-shrink-0 w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-2.66rem)]"
+                  className="flex-shrink-0 w-full md:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-2.66rem)] snap-center"
                 >
                   <Link
                     href={`/project/${project.slug}`}
@@ -109,14 +133,14 @@ export function Projects() {
                       initial="hidden"
                       whileInView="visible"
                       viewport={viewport}
-                      className="relative aspect-[4/3]"
+                      className="relative aspect-[4/3] overflow-hidden"
                     >
                       {/* Image */}
                       <Image
                         src={project.image}
                         alt={project.title}
                         fill
-                        className="object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-sm pointer-events-none"
+                        className="object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-sm"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
 
@@ -140,7 +164,7 @@ export function Projects() {
                   </Link>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
           {/* Navigation Arrows - Hidden on mobile, show on tablet+ */}
