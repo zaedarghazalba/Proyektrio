@@ -1,9 +1,23 @@
-// proxy.ts
-import createMiddleware from "next-intl/middleware";
-import { routing } from "./i18n/routing";
+// proxy.ts - Middleware for Indonesian only
+import { NextRequest, NextResponse } from "next/server";
 
-export default createMiddleware(routing);
+export default function middleware(request: NextRequest) {
+  // Get pathname
+  const pathname = request.nextUrl.pathname;
+
+  // Redirect root to /id
+  if (pathname === "/") {
+    return NextResponse.redirect(new URL("/id", request.url));
+  }
+
+  // If pathname doesn't start with /id, redirect to /id + pathname
+  if (!pathname.startsWith("/id")) {
+    return NextResponse.redirect(new URL(`/id${pathname}`, request.url));
+  }
+
+  return NextResponse.next();
+}
 
 export const config = {
-  matcher: ["/((?!api|_next|.*\\..*).*)"],
+  matcher: ["/((?!_next|api|.*\\.).*)"],
 };

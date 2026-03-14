@@ -4,7 +4,7 @@ import { getMessages } from "next-intl/server";
 import { Providers } from "@/components/providers/Providers";
 import { CustomCursor } from "@/components/common/CustomCursor";
 import { SITE_CONFIG } from "@/lib/constants";
-import "./globals.css";
+import "../globals.css";
 
 // Google Fonts
 import { Bebas_Neue, Cormorant_Garamond, DM_Mono } from "next/font/google";

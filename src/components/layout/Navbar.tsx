@@ -9,6 +9,7 @@ import { MagneticButton } from "@/components/common/MagneticButton";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { Link } from "@/i18n/routing";
 import { getWhatsAppLink } from "@/lib/constants";
+import { usePathname } from "next/navigation";
 
 interface NavbarProps {
   loaded: boolean;
@@ -16,6 +17,7 @@ interface NavbarProps {
 
 export function Navbar({ loaded }: NavbarProps) {
   const t = useTranslations("nav");
+  const pathname = usePathname();
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -33,6 +35,22 @@ export function Navbar({ loaded }: NavbarProps) {
   const logoLetters = "DROPINK".split("");
 
   const whatsappMessage = "Halo DROPINK, saya ingin berdiskusi tentang proyek saya.";
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    e.preventDefault();
+    
+    // If not on homepage, navigate to homepage first
+    if (!pathname.startsWith("/id") || pathname !== "/id") {
+      window.location.href = `/id${hash}`;
+      return;
+    }
+    
+    // If on homepage, smooth scroll
+    const element = document.querySelector(hash);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <motion.nav
@@ -71,9 +89,9 @@ export function Navbar({ loaded }: NavbarProps) {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <NavLink href="/#services">{t("services")}</NavLink>
-            <NavLink href="/#projects">{t("projects")}</NavLink>
-            <NavLink href="/#about">{t("about")}</NavLink>
+            <NavLink href="/id#services" onClick={(e) => handleNavClick(e, "#services")}>{t("services")}</NavLink>
+            <NavLink href="/id#projects" onClick={(e) => handleNavClick(e, "#projects")}>{t("projects")}</NavLink>
+            <NavLink href="/id#about" onClick={(e) => handleNavClick(e, "#about")}>{t("about")}</NavLink>
 
             <div className="flex items-center gap-4 ml-4 pl-4 border-l border-g4">
               <ThemeToggle />
@@ -102,15 +120,16 @@ export function Navbar({ loaded }: NavbarProps) {
   );
 }
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+function NavLink({ href, onClick, children }: { href: string; onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void; children: React.ReactNode }) {
   return (
-    <Link
+    <a
       href={href}
+      onClick={onClick}
       className="relative font-mono text-label-sm uppercase tracking-wider text-g6 hover:text-white transition-colors duration-300 group"
       data-cursor="hover"
     >
       {children}
       <span className="absolute -bottom-1 left-0 w-full h-[1px] bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
-    </Link>
+    </a>
   );
 }
