@@ -138,7 +138,7 @@ export default function ProjectDetailPage() {
 
       {/* Hero Section - Full Image */}
       <section className="relative w-full">
-        <div className="relative aspect-[16/10] md:aspect-[21/9] w-full overflow-hidden">
+        <div className="relative aspect-[4/3] sm:aspect-[3/2] md:aspect-[21/9] w-full overflow-hidden">
           <Image
             src={project.image}
             alt={project.title}
@@ -150,16 +150,16 @@ export default function ProjectDetailPage() {
       </section>
 
       {/* Project Info Section - Separate from Image */}
-      <section className="py-16 px-8 md:px-16 bg-black">
+      <section className="py-8 md:py-16 px-4 md:px-8 lg:px-16 bg-black">
         <div className="max-w-content mx-auto">
           {/* Category Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-6"
+            className="mb-4 md:mb-6"
           >
-            <span className="inline-block px-4 py-2 bg-g1 border border-g4 rounded-full font-mono text-label-sm text-g5 uppercase tracking-wider">
+            <span className="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-g1 border border-g4 rounded-full font-mono text-label-xs md:text-label-sm text-g5 uppercase tracking-wider">
               {project.category}
             </span>
           </motion.div>
@@ -169,7 +169,7 @@ export default function ProjectDetailPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="font-display text-display-md md:text-display-lg text-white uppercase tracking-wider mb-8"
+            className="font-display text-display-sm md:text-display-md lg:text-display-lg text-white uppercase tracking-wider mb-6 md:mb-8"
           >
             {project.title}
           </motion.h1>
@@ -177,28 +177,28 @@ export default function ProjectDetailPage() {
       </section>
 
       {/* Project Overview */}
-      <section className="py-20 px-8 md:px-16 bg-g1">
+      <section className="py-12 md:py-20 px-4 md:px-8 lg:px-16 bg-g1">
         <div className="max-w-content mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
           >
             <div>
-              <span className="block font-mono text-label-md text-g5 uppercase tracking-wider mb-6">
+              <span className="block font-mono text-label-sm md:text-label-md text-g5 uppercase tracking-wider mb-4 md:mb-6">
                 01 — Overview
               </span>
-              <p className="font-body text-body-lg text-g6 leading-relaxed mb-8">
+              <p className="font-body text-body-sm md:text-body-lg text-g6 leading-relaxed mb-6 md:mb-8">
                 {project.description}
               </p>
             </div>
             <div>
-              <span className="block font-mono text-label-md text-g5 uppercase tracking-wider mb-6">
+              <span className="block font-mono text-label-sm md:text-label-md text-g5 uppercase tracking-wider mb-4 md:mb-6">
                 02 — The Challenge
               </span>
-              <p className="font-body text-body-lg text-g6 leading-relaxed mb-8">
+              <p className="font-body text-body-sm md:text-body-lg text-g6 leading-relaxed mb-6 md:mb-8">
                 {project.challenge}
               </p>
             </div>
@@ -209,12 +209,12 @@ export default function ProjectDetailPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-12"
+            className="mt-8 md:mt-12"
           >
-            <span className="block font-mono text-label-md text-g5 uppercase tracking-wider mb-6">
+            <span className="block font-mono text-label-sm md:text-label-md text-g5 uppercase tracking-wider mb-4 md:mb-6">
               03 — The Solution
             </span>
-            <p className="font-body text-body-lg text-g6 leading-relaxed max-w-4xl">
+            <p className="font-body text-body-sm md:text-body-lg text-g6 leading-relaxed max-w-4xl">
               {project.solution}
             </p>
           </motion.div>
@@ -222,20 +222,20 @@ export default function ProjectDetailPage() {
       </section>
 
       {/* Features */}
-      <section className="py-20 px-8 md:px-16 bg-black">
+      <section className="py-12 md:py-20 px-4 md:px-8 lg:px-16 bg-black">
         <div className="max-w-content mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-8 md:mb-12"
           >
-            <span className="block font-mono text-label-md text-g5 uppercase tracking-wider">
+            <span className="block font-mono text-label-sm md:text-label-md text-g5 uppercase tracking-wider">
               04 — Features
             </span>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {project.features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -243,13 +243,15 @@ export default function ProjectDetailPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className="p-6 bg-g1 border border-g3"
+                className="p-4 md:p-6 bg-g1 border border-g3"
               >
-                <div className="flex items-start gap-4">
-                  <span className="font-mono text-label-xs text-g5">
+                <div className="flex items-start gap-3 md:gap-4">
+                  <span className="font-mono text-label-xs text-g5 flex-shrink-0">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <p className="font-body text-body-base text-g6">{feature}</p>
+                  <p className="font-body text-body-sm md:text-body-base text-g6">
+                    {feature}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -258,26 +260,29 @@ export default function ProjectDetailPage() {
       </section>
 
       {/* Gallery */}
-      <section className="py-20 px-8 md:px-16 bg-g1">
+      <section className="py-12 md:py-20 px-4 md:px-8 lg:px-16 bg-g1">
         <div className="max-w-content mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mb-12"
+            className="mb-8 md:mb-12"
           >
-            <span className="block font-mono text-label-md text-g5 uppercase tracking-wider">
+            <span className="block font-mono text-label-sm md:text-label-md text-g5 uppercase tracking-wider">
               05 — Gallery
             </span>
           </motion.div>
 
-          <div className="relative overflow-hidden">
-            <div className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4">
+          <div className="relative w-full">
+            <div 
+              className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 scroll-smooth"
+              style={{ WebkitOverflowScrolling: 'touch' }}
+            >
               {project.gallery.map((item, index) => (
                 <Link
                   key={index}
                   href={`/project/${item.slug}`}
-                  className="relative aspect-[4/3] min-w-[300px] md:min-w-[400px] flex-shrink-0 snap-center group cursor-pointer"
+                  className="relative aspect-[4/3] min-w-[280px] sm:min-w-[300px] md:min-w-[350px] flex-shrink-0 snap-center group cursor-pointer"
                   data-cursor="view"
                 >
                   <motion.div
@@ -285,16 +290,17 @@ export default function ProjectDetailPage() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="relative w-full h-full"
+                    className="relative w-full h-full overflow-hidden"
                   >
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      className="object-cover transition-all duration-500 group-hover:blur-sm group-hover:scale-105 pointer-events-none"
+                      className="object-cover transition-all duration-500 group-hover:blur-sm group-hover:scale-105"
+                      sizes="(max-width: 640px) 280px, (max-width: 1024px) 300px, 350px"
                     />
                     <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <h3 className="font-display text-display-sm text-white uppercase tracking-wider text-center px-4">
+                      <h3 className="font-display text-display-xs md:text-display-sm text-white uppercase tracking-wider text-center px-4">
                         {item.title}
                       </h3>
                     </div>
@@ -303,24 +309,29 @@ export default function ProjectDetailPage() {
               ))}
             </div>
           </div>
+
+          {/* Mobile hint */}
+          <p className="text-center text-g5 text-xs md:hidden mt-4">
+            ← Swipe to see more →
+          </p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-8 md:px-16 bg-black text-center">
+      <section className="py-12 md:py-20 px-4 md:px-8 lg:px-16 bg-black text-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-display text-display-md text-white uppercase mb-8">
+          <h2 className="font-display text-display-xs md:text-display-sm text-white uppercase mb-6 md:mb-8">
             {t("interested")}
           </h2>
           <a
             href={`https://wa.me/6281239968426?text=${encodeURIComponent(t("interestedMessage", { project: project.title }))}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-12 py-5 bg-white text-black font-mono text-label-md uppercase tracking-wider hover:bg-g6 transition-colors duration-300"
+            className="inline-block px-8 py-3 md:px-12 md:py-5 bg-white text-black font-mono text-label-sm md:text-label-md uppercase tracking-wider hover:bg-g6 transition-colors duration-300"
             data-cursor="hover"
           >
             {t("contactUs")}
