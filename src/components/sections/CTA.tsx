@@ -29,7 +29,7 @@ export function CTA() {
   return (
     <section
       ref={ref}
-      className="relative py-32 px-8 md:px-16 bg-black overflow-hidden"
+      className="relative py-16 md:py-32 px-4 md:px-8 lg:px-16 bg-black overflow-hidden"
     >
       {/* Ghost DROPINK Text */}
       <motion.div
@@ -40,7 +40,7 @@ export function CTA() {
         }}
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
       >
-        <span className="font-display text-[20vw] md:text-[25vw] text-g4 uppercase opacity-20 select-none">
+        <span className="font-display text-[15vw] md:text-[20vw] lg:text-[25vw] text-g4 uppercase opacity-20 select-none">
           DROPINK
         </span>
       </motion.div>
@@ -51,12 +51,12 @@ export function CTA() {
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
-          className="mb-12"
+          className="mb-8 md:mb-12"
         >
           <SplitText
             text={t("heading")}
             mode="words"
-            className="font-display text-display-md md:text-display-lg text-white uppercase"
+            className="font-display text-display-sm md:text-display-md lg:text-display-lg text-white uppercase"
           />
         </motion.div>
 
@@ -72,7 +72,7 @@ export function CTA() {
               href={getWhatsAppLink(whatsappMessage)}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-12 py-5 bg-white text-black font-mono text-label-md uppercase tracking-wider hover:bg-g6 transition-colors duration-300"
+              className="inline-block px-8 py-3 md:px-12 md:py-5 bg-white text-black font-mono text-label-sm md:text-label-md uppercase tracking-wider hover:bg-g6 transition-colors duration-300"
               data-cursor="hover"
             >
               {t("button")}

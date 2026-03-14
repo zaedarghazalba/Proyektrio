@@ -17,9 +17,9 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="py-32 px-8 md:px-16 bg-black">
+    <section id="about" className="py-16 md:py-32 px-4 md:px-8 lg:px-16 bg-black">
       <div className="max-w-content mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
           {/* Left Side - Image */}
           <motion.div
             variants={clipRevealRight}
@@ -35,14 +35,14 @@ export function About() {
                 speed={0.15}
                 className="w-full h-full"
               />
-              
+
               {/* Floating Badge */}
               <motion.div
-                className="absolute -bottom-8 -right-8 bg-white text-black p-6 md:p-8"
+                className="absolute -bottom-4 -right-4 md:-bottom-8 md:-right-8 bg-white text-black p-4 md:p-8"
                 animate={{ y: [0, -8, 0] }}
                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
               >
-                <span className="block font-display text-display-sm">15+</span>
+                <span className="block font-display text-display-xs md:text-display-sm">15+</span>
                 <span className="block font-mono text-label-xs uppercase tracking-wider text-g5">
                   Years
                 </span>
@@ -58,9 +58,9 @@ export function About() {
               initial="hidden"
               whileInView="visible"
               viewport={viewport}
-              className="mb-8"
+              className="mb-6 md:mb-8"
             >
-              <span className="block font-mono text-label-md text-g5 uppercase tracking-wider">
+              <span className="block font-mono text-label-sm md:text-label-md text-g5 uppercase tracking-wider">
                 {t("label")}
               </span>
             </motion.div>
@@ -70,12 +70,12 @@ export function About() {
               initial="hidden"
               whileInView="visible"
               viewport={viewport}
-              className="mb-8"
+              className="mb-6 md:mb-8"
             >
               <SplitText
                 text={t("title")}
                 mode="words"
-                className="font-display text-display-md text-white uppercase"
+                className="font-display text-display-sm md:text-display-md text-white uppercase"
               />
             </motion.div>
 
@@ -85,7 +85,7 @@ export function About() {
               initial="hidden"
               whileInView="visible"
               viewport={viewport}
-              className="font-body text-body-lg text-g5 leading-relaxed mb-12"
+              className="font-body text-body-base md:text-body-lg text-g5 leading-relaxed mb-8 md:mb-12"
             >
               {t("description")}
             </motion.p>
@@ -96,11 +96,11 @@ export function About() {
               initial="hidden"
               whileInView="visible"
               viewport={viewport}
-              className="grid grid-cols-3 gap-8"
+              className="grid grid-cols-3 gap-4 md:gap-8"
             >
               {stats.map((stat, i) => (
                 <motion.div key={i} variants={fadeUp} className="text-left">
-                  <span className="block font-display text-display-sm text-white mb-2">
+                  <span className="block font-display text-display-xs md:text-display-sm text-white mb-2">
                     {stat.value}
                   </span>
                   <span className="block font-mono text-label-xs text-g5 uppercase tracking-wider">

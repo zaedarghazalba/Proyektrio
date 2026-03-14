@@ -11,14 +11,14 @@ export function Stats() {
   const t = useTranslations("stats");
 
   return (
-    <section className="py-20 px-8 md:px-16 bg-g1 border-y border-g4">
+    <section className="py-12 md:py-20 px-4 md:px-8 lg:px-16 bg-g1 border-y border-g4">
       <div className="max-w-content mx-auto">
         <motion.div
           variants={staggerFast}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 lg:gap-12"
         >
           {STATS.map((stat, index) => (
             <StatBlock
@@ -56,7 +56,7 @@ function StatBlock({
       variants={fadeUp}
       className="relative text-center"
     >
-      {/* Divider line */}
+      {/* Divider line - hidden on mobile, show on md+ */}
       {index < total - 1 && (
         <motion.div
           initial={{ scaleY: 0 }}
@@ -67,14 +67,14 @@ function StatBlock({
         />
       )}
 
-      <div className="py-4">
+      <div className="py-4 md:py-6">
         <motion.span
           ref={ref}
           initial={{ scale: 0.5, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.3 }}
-          className="block font-display text-display-sm md:text-display-md text-white mb-2"
+          className="block font-display text-display-xs md:text-display-sm text-white mb-2"
         >
           {formatted}
         </motion.span>
@@ -83,7 +83,7 @@ function StatBlock({
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.4 }}
-          className="block font-mono text-label-sm text-g5 uppercase tracking-wider"
+          className="block font-mono text-label-xs text-g5 uppercase tracking-wider"
         >
           {label}
         </motion.span>
