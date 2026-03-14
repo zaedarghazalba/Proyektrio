@@ -1,4 +1,4 @@
-// app/not-found.tsx
+// app/[locale]/not-found.tsx
 "use client";
 
 import { Link } from "@/i18n/routing";
@@ -27,7 +27,7 @@ export default function NotFound() {
             Maaf, halaman yang Anda cari tidak dapat ditemukan.
           </p>
           <Link
-            href="/"
+            href="/id"
             className="inline-block px-8 py-3 bg-white text-black font-mono text-label-md uppercase tracking-wider hover:bg-g6 transition-colors duration-300"
           >
             Kembali ke Beranda
