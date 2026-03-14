@@ -22,16 +22,16 @@ export function CTA() {
   const ghostOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
   const ghostRotate = useTransform(scrollYProgress, [0, 1], [-2, 2]);
 
-  const whatsappMessage = t("heading").includes("ikonik") 
-    ? "Halo DROPINK, saya ingin memulai proyek baru."
-    : "Hello DROPINK, I want to start a new project.";
+  const whatsappMessage = t("heading").includes("ikonik")
+    ? "Halo Terra's Creative, saya ingin memulai proyek baru."
+    : "Hello Terra's Creative, I want to start a new project.";
 
   return (
     <section
       ref={ref}
       className="relative py-16 md:py-32 px-4 md:px-8 lg:px-16 bg-black overflow-hidden"
     >
-      {/* Ghost DROPINK Text */}
+      {/* Ghost Terra's Text */}
       <motion.div
         style={{
           scale: ghostScale,
@@ -41,7 +41,7 @@ export function CTA() {
         className="absolute inset-0 flex items-center justify-center pointer-events-none"
       >
         <span className="font-display text-[15vw] md:text-[20vw] lg:text-[25vw] text-g4 uppercase opacity-20 select-none">
-          DROPINK
+          TERRA'S
         </span>
       </motion.div>
 

@@ -10,6 +10,7 @@ import { Stats } from "@/components/sections/Stats";
 import { Services } from "@/components/sections/Services";
 import { Projects } from "@/components/sections/Projects";
 import { About } from "@/components/sections/About";
+import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { CTA } from "@/components/sections/CTA";
 
@@ -48,6 +49,7 @@ export default function HomePage() {
           <Services />
           <Projects />
           <About />
+          <WhyChooseUs />
           <Testimonials />
           <CTA />
         </main>

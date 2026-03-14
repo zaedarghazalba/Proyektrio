@@ -6,9 +6,9 @@
     "cta": "Hubungi Kami"
   },
   "hero": {
-    "line1": "DESAIN YANG",
-    "line2": "BERBICARA",
-    "line3": "Lebih dari sekadar struktur."
+    "line1": "COMPANY",
+    "line2": "PROFILE",
+    "line3": "Turning dreams Into Reality Through Creativity"
   },
   "stats": {
     "projects": "Proyek Selesai",
@@ -20,16 +20,35 @@
     "title": "Layanan Kami",
     "s1_title": "Desain Arsitektur",
     "s1_desc": "Konsep hingga penyelesaian, residensial & komersial.",
-    "s2_title": "Arsitektur Interior",
-    "s2_desc": "Kurasi ruang dengan materialitas dan cahaya.",
-    "s3_title": "Perencanaan Kota",
-    "s3_desc": "Masterplan skala besar dan desain ruang publik."
+    "s2_title": "Desain Interior",
+    "s2_desc": "Kurasi ruang dengan materialitas, cahaya, dan fungsi yang optimal.",
+    "s3_title": "Fotografi & Produksi Konten Visual",
+    "s3_desc": "Dokumentasi visual profesional untuk arsitektur dan interior."
+  },
+  "whyChooseUs": {
+    "title": "WHY U SHOULD CHOOSE US?",
+    "item1_title": "Integrated Creative Studio",
+    "item1_desc": "Kami menggabungkan arsitektur, desain interior, fotografi, dan produksi konten visual dalam satu studio. Pendekatan ini memungkinkan setiap proyek memiliki kesatuan konsep, visual, dan cerita yang kuat.",
+    "item2_title": "Design with Character",
+    "item2_desc": "Kami percaya bahwa setiap karya harus memiliki identitas dan karakter yang jelas, bukan sekadar mengikuti tren. Setiap desain dirancang dengan pendekatan estetika, fungsi, dan pengalaman yang seimbang.",
+    "item3_title": "Creative Storytelling",
+    "item3_desc": "Bagi kami, ruang dan momen bukan hanya untuk dilihat, tetapi juga untuk diceritakan. Melalui desain dan visual, kami membantu menyampaikan cerita di balik setiap karya dan momen berharga.",
+    "item4_title": "From Dream to Reality",
+    "item4_desc": "Terra's lahir dari keyakinan bahwa mimpi dapat menjadi kenyataan melalui kreativitas. Kami hadir untuk membantu mewujudkan ide menjadi karya yang nyata, bermakna, dan berkesan."
+  },
+  "about": {
+    "label": "SINCE 2024",
+    "title": "ABOUT US",
+    "description": "Terra's Architect & Creative tim di bidang Desain Arsitek, Desain Interior, Fotografi dan Produksi Konten Visual.\n\nKami percaya bahwa setiap ide dan mimpi memiliki potensi untuk menjadi kenyataan ketika diwujudkan melalui proses kreatif yang tepat.\n\nBagi Terra's, kreativitas adalah jembatan antara ide dan realitas. Karena kami percaya bahwa setiap mimpi dapat menjadi nyata ketika diwujudkan melalui desain, visual, dan kreativitas.",
+    "experience": "Tahun Pengalaman",
+    "team": "Anggota Tim",
+    "clients": "Klien Puas"
   },
   "projects": {
     "title": "Karya Pilihan",
     "view_project": "Lihat Proyek",
     "interested": "Tertarik dengan proyek ini?",
-    "interestedMessage": "Halo DROPINK, saya tertarik dengan {project}",
+    "interestedMessage": "Halo Terra's Creative, saya tertarik dengan {project}",
     "contactUs": "Hubungi Kami",
     "slugs": {
       "houseModern": "rumah-modern",
@@ -98,17 +117,9 @@
       }
     }
   },
-  "about": {
-    "label": "Tentang",
-    "title": "Menciptakan ruang yang menginspirasi kehidupan",
-    "description": "DROPINK Studio adalah studio arsitektur premium yang berfokus pada desain yang bermakna dan berkelanjutan. Kami percaya bahwa setiap ruang memiliki cerita untuk diceritakan.",
-    "experience": "Tahun Pengalaman",
-    "team": "Anggota Tim",
-    "clients": "Klien Puas"
-  },
   "testimonials": {
     "title": "Apa Kata Klien",
-    "t1_text": "DROPINK mengubah visi kami menjadi kenyataan. Hasilnya melebihi ekspektasi.",
+    "t1_text": "Terra's Creative mengubah visi kami menjadi kenyataan. Hasilnya melebihi ekspektasi.",
     "t1_author": "Budi Santoso",
     "t1_role": "CEO, Property Indonesia",
     "t2_text": "Profesional, kreatif, dan sangat perhatian terhadap detail. Sangat direkomendasikan.",
@@ -125,10 +136,10 @@
     "contact": "Kontak",
     "privacy": "Kebijakan Privasi",
     "terms": "Syarat & Ketentuan",
-    "copyright": "© 2026 DROPINK Studio. Hak cipta dilindungi."
+    "copyright": "© 2026 Terra's Creative. Hak cipta dilindungi."
   },
   "contact": {
-    "whatsapp_message": "Halo DROPINK, saya ingin mendiskusikan proyek saya."
+    "whatsapp_message": "Halo Terra's Creative, saya ingin mendiskusikan proyek saya."
   },
   "common": {
     "view": "LIHAT",

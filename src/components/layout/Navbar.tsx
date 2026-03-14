@@ -10,6 +10,8 @@ import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { Link } from "@/i18n/routing";
 import { getWhatsAppLink } from "@/lib/constants";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { useTheme } from "next-themes";
 
 interface NavbarProps {
   loaded: boolean;
@@ -20,6 +22,7 @@ export function Navbar({ loaded }: NavbarProps) {
   const pathname = usePathname();
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme } = useTheme();
 
   const scrollYProgress = useScroll();
   const scaleX = useTransform(scrollYProgress.scrollYProgress, [0, 1], [0, 1]);
@@ -32,19 +35,17 @@ export function Navbar({ loaded }: NavbarProps) {
     return () => unsubscribe();
   }, [scrollY]);
 
-  const logoLetters = "DROPINK".split("");
-
-  const whatsappMessage = "Halo DROPINK, saya ingin berdiskusi tentang proyek saya.";
+  const whatsappMessage = "Halo Terra's Creative, saya ingin berdiskusi tentang proyek saya.";
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
     e.preventDefault();
-    
+
     // If not on homepage, navigate to homepage first
     if (!pathname.startsWith("/id") || pathname !== "/id") {
       window.location.href = `/id${hash}`;
       return;
     }
-    
+
     // If on homepage, smooth scroll
     const element = document.querySelector(hash);
     if (element) {
@@ -70,21 +71,18 @@ export function Navbar({ loaded }: NavbarProps) {
         style={{ scaleX }}
       />
 
-      <div className="max-w-content mx-auto px-8 md:px-16 py-6">
+      <div className="max-w-content mx-auto px-8 md:px-16 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="font-display text-display-xs tracking-wider">
-            <div className="flex overflow-hidden">
-              {logoLetters.map((letter, i) => (
-                <motion.span
-                  key={i}
-                  className="inline-block hover:-translate-y-1 transition-transform duration-300 cursor-pointer"
-                  whileHover={{ y: -4 }}
-                >
-                  {letter}
-                </motion.span>
-              ))}
-            </div>
+          <Link href="/" className="inline-block">
+            <Image
+              src={theme === "light" ? "/Terra's.svg" : "/Terra's-light.svg"}
+              alt="Terra's Creative"
+              width={180}
+              height={60}
+              className="h-10 md:h-12 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

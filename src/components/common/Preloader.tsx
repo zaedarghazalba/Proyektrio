@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 interface PreloaderProps {
   onComplete: () => void;
@@ -12,17 +13,14 @@ export function Preloader({ onComplete }: PreloaderProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasVisited, setHasVisited] = useState(false);
 
-  const logoText = "DROPINK";
-  const logoLetters = logoText.split("");
-
   // Check if user has visited before
   useEffect(() => {
-    const visited = sessionStorage.getItem("dropink-visited");
+    const visited = sessionStorage.getItem("terras-visited");
     if (visited) {
       setHasVisited(true);
       onComplete();
     } else {
-      sessionStorage.setItem("dropink-visited", "true");
+      sessionStorage.setItem("terras-visited", "true");
     }
   }, [onComplete]);
 
@@ -31,8 +29,8 @@ export function Preloader({ onComplete }: PreloaderProps) {
     if (!hasVisited) {
       const timer = setTimeout(() => {
         setIsLoaded(true);
-        setTimeout(onComplete, 1000);
-      }, 2500); // Total animation time
+        setTimeout(onComplete, 800);
+      }, 2000); // Total animation time
 
       return () => clearTimeout(timer);
     }
@@ -54,47 +52,46 @@ export function Preloader({ onComplete }: PreloaderProps) {
           transition={{ duration: 0.8, ease: "easeInOut" }}
         >
           {/* Logo Container */}
-          <div className="relative">
-            <div className="flex overflow-hidden">
-              {logoLetters.map((letter, i) => (
-                <motion.span
-                  key={i}
-                  className="font-display text-display-lg md:text-[120px] text-white inline-block overflow-hidden"
-                  initial={{ y: "100%" }}
-                  animate={{ y: 0 }}
-                  transition={{
-                    duration: 0.8,
-                    ease: [0.22, 1, 0.36, 1],
-                    delay: i * 0.08,
-                  }}
-                >
-                  {letter}
-                </motion.span>
-              ))}
-            </div>
-
-            {/* Underline Animation */}
-            <motion.div
-              className="absolute -bottom-4 left-0 h-[2px] bg-white"
-              initial={{ width: "0%" }}
-              animate={{ width: "100%" }}
-              transition={{
-                duration: 0.6,
-                ease: "easeInOut",
-                delay: 0.8,
-              }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
+          >
+            <Image
+              src="/Terra's-light.svg"
+              alt="Terra's Creative"
+              width={280}
+              height={100}
+              className="h-20 md:h-28 w-auto object-contain"
+              priority
             />
-          </div>
+          </motion.div>
 
           {/* Tagline */}
           <motion.p
-            className="font-mono text-label-sm text-g5 uppercase tracking-widest mt-8"
+            className="font-mono text-label-xs text-g5 uppercase tracking-widest mt-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
           >
-            Architecture Studio
+            Turning dreams Into Reality
           </motion.p>
+
+          {/* Loading Bar */}
+          <motion.div
+            className="w-48 h-[1px] bg-g4 mt-8 overflow-hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+          >
+            <motion.div
+              className="h-full bg-white"
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 1.2, ease: "easeInOut", delay: 0.8 }}
+            />
+          </motion.div>
 
           {/* Fade out overlay */}
           {isLoaded && (

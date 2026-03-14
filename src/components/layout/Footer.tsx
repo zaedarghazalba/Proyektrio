@@ -4,14 +4,15 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Link } from "@/i18n/routing";
+import Image from "next/image";
+import { useTheme } from "next-themes";
 
 export function Footer() {
   const t = useTranslations("footer");
+  const { theme } = useTheme();
 
   const socialIcons = [
-    { name: "Instagram", path: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z M17.5 6.5h.01 M7.06 2h9.88c5.06 0 5.06 5.06 5.06 5.06v9.88c0 5.06-5.06 5.06-5.06 5.06H7.06c-5.06 0-5.06-5.06-5.06-5.06V7.06C2 2 7.06 2 7.06 2z" },
-    { name: "LinkedIn", path: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z M2 9h4v12H2z M4 2a2 2 0 1 1-2 2 2 2 0 0 1 2-2z" },
-    { name: "Behance", path: "M22 7h-7V5h7v2zm11 5c0-5-4-9-9-9H9C4 3 0 7 0 12s4 9 9 9h9c5 0 9-4 9-9zm-11 5H9v-2h5c1.1 0 2-.9 2-2s-.9-2-2-2H9V9h5c2.21 0 4 1.79 4 4s-1.79 4-4 4z" },
+    { name: "Instagram", path: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z M17.5 6.5h.01 M7.06 2h9.88c5.06 0 5.06 5.06 5.06 5.06v9.88c0 5.06-5.06 5.06-5.06 5.06H7.06c-5.06 0-5.06-5.06-5.06-5.06V7.06C2 2 7.06 2 7.06 2z", href: "https://instagram.com/terrasscreative" },
   ];
 
   return (
@@ -26,11 +27,17 @@ export function Footer() {
             transition={{ delay: 0.1 }}
             className="md:col-span-2"
           >
-            <Link href="/" className="font-display text-display-sm tracking-wider inline-block mb-6 text-white">
-              DROPINK
+            <Link href="/" className="inline-block mb-6">
+              <Image
+                src={theme === "light" ? "/Terra's.svg" : "/Terra's-light.svg"}
+                alt="Terra's Creative"
+                width={200}
+                height={70}
+                className="h-14 w-auto object-contain"
+              />
             </Link>
             <p className="font-body text-body-base text-g5 max-w-md">
-              Creating spaces that inspire life. Premium architecture studio focused on meaningful and sustainable design.
+              Turning dreams Into Reality Through Creativity. Terra's Creative adalah studio kreatif yang menggabungkan arsitektur, desain interior, fotografi, dan produksi konten visual.
             </p>
           </motion.div>
 
@@ -52,7 +59,7 @@ export function Footer() {
                 transition={{ delay: 0.3 }}
               >
                 <Link href="/#services" className="text-g5 hover:text-white transition-colors duration-300">
-                  Architectural Design
+                  Desain Arsitektur
                 </Link>
               </motion.li>
               <motion.li
@@ -62,7 +69,7 @@ export function Footer() {
                 transition={{ delay: 0.35 }}
               >
                 <Link href="/#services" className="text-g5 hover:text-white transition-colors duration-300">
-                  Interior Architecture
+                  Desain Interior
                 </Link>
               </motion.li>
               <motion.li
@@ -72,7 +79,7 @@ export function Footer() {
                 transition={{ delay: 0.4 }}
               >
                 <Link href="/#services" className="text-g5 hover:text-white transition-colors duration-300">
-                  Urban Planning
+                  Fotografi & Produksi Konten Visual
                 </Link>
               </motion.li>
             </ul>
@@ -89,9 +96,27 @@ export function Footer() {
               {t("contact")}
             </h4>
             <ul className="space-y-3 text-g5">
-              <li>hello@dropink.studio</li>
-              <li>+62 812 3456 7890</li>
-              <li>Jakarta, Indonesia</li>
+              <li className="flex items-start gap-2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5 flex-shrink-0 mt-0.5">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span>Malabar Coffee, Jl. P. Sumatera, Pamusian, Kec. Tarakan Tengah, Kota Tarakan, Kalimantan Utara</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+                <a href="tel:+6281239968426" className="hover:text-white transition-colors duration-300">+62 812 3996 8426</a>
+              </li>
+              <li className="flex items-center gap-2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+                <a href="https://instagram.com/terrasscreative" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300">@terrasscreative</a>
+              </li>
             </ul>
           </motion.div>
         </div>
@@ -107,7 +132,9 @@ export function Footer() {
           {socialIcons.map((icon, i) => (
             <motion.a
               key={i}
-              href="#"
+              href={icon.href}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
