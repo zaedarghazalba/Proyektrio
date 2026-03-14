@@ -30,21 +30,22 @@ export function Hero() {
       <div className="absolute inset-0 bg-black/30" />
 
       {/* Content - Centered */}
-      <div className="relative z-10 text-center px-6 md:px-8 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-4 md:px-6 lg:px-8 max-w-5xl mx-auto w-full">
         {/* Logo - Always black for Company Profile */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="mb-8 flex justify-center"
+          className="mb-6 md:mb-8 flex justify-center"
         >
           <Image
             src="/Terra's.svg"
             alt="Terra's Creative"
-            width={280}
-            height={100}
-            className="h-16 md:h-24 w-auto object-contain"
+            width={200}
+            height={80}
+            className="h-10 sm:h-14 md:h-20 lg:h-24 w-auto object-contain"
             priority
+            sizes="(max-width: 640px) 160px, (max-width: 768px) 200px, 280px"
           />
         </motion.div>
 
@@ -56,7 +57,7 @@ export function Hero() {
           transition={{ delay: 0.1, duration: 1.0 }}
           className="overflow-hidden"
         >
-          <h1 className="font-display text-[13vw] md:text-display-lg lg:text-display-xl uppercase tracking-wider mb-2 leading-none" style={{ color: '#000000' }}>
+          <h1 className="font-display text-[15vw] sm:text-[13vw] md:text-display-lg lg:text-display-xl text-black uppercase tracking-wider mb-1 md:mb-2 leading-none">
             {t("line1")}
           </h1>
         </motion.div>
@@ -69,7 +70,7 @@ export function Hero() {
           transition={{ delay: 0.3, duration: 1.0 }}
           className="overflow-hidden"
         >
-          <h1 className="font-display text-[13vw] md:text-display-lg lg:text-display-xl uppercase tracking-wider mb-6 leading-none" style={{ color: '#000000' }}>
+          <h1 className="font-display text-[15vw] sm:text-[13vw] md:text-display-lg lg:text-display-xl text-black uppercase tracking-wider mb-4 md:mb-6 leading-none">
             {t("line2")}
           </h1>
         </motion.div>
@@ -84,8 +85,7 @@ export function Hero() {
             <a
               href="#projects"
               data-cursor="hover"
-              className="inline-block px-6 py-3 md:px-10 md:py-4 font-mono text-xs md:text-label-md uppercase tracking-wider transition-colors duration-300"
-              style={{ backgroundColor: '#000000', color: '#ffffff' }}
+              className="inline-block px-5 py-2.5 md:px-10 md:py-4 bg-black text-white font-mono text-[10px] md:text-xs lg:text-label-md uppercase tracking-wider hover:bg-g3 transition-colors duration-300"
             >
               Lihat Karya
             </a>

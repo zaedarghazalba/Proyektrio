@@ -53,30 +53,30 @@ export function About() {
   };
 
   return (
-    <section id="about" className="py-16 md:py-32 px-4 md:px-8 lg:px-16 bg-black">
+    <section id="about" className="py-12 md:py-20 lg:py-32 px-4 md:px-8 lg:px-16 bg-black">
       <div className="max-w-content mx-auto">
         {/* Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={viewport}
-          className="mb-12 md:mb-20 text-center"
+          className="mb-8 md:mb-12 lg:mb-20 text-center"
         >
           <motion.span
             variants={fadeUp}
-            className="block font-mono text-label-sm md:text-label-md text-g5 uppercase tracking-wider mb-4"
+            className="block font-mono text-[10px] md:text-label-sm lg:text-label-md text-g5 uppercase tracking-wider mb-3 md:mb-4"
           >
             {t("label")}
           </motion.span>
           <SplitText
             text={t("title")}
             mode="words"
-            className="font-display text-display-sm md:text-display-md text-white uppercase"
+            className="font-display text-display-xs sm:text-display-sm md:text-display-md lg:text-display-lg text-white uppercase"
           />
         </motion.div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
           
           {/* Left Column - Animated Logo Display */}
           <motion.div
@@ -84,11 +84,11 @@ export function About() {
             initial="hidden"
             whileInView="visible"
             viewport={viewport}
-            className="relative"
+            className="relative w-full max-w-md mx-auto lg:max-w-none"
           >
             {/* Main Container with Theme-Inverted Background */}
             <div 
-              className="relative w-full aspect-square max-w-md mx-auto rounded-full"
+              className="relative w-full aspect-square max-w-[280px] sm:max-w-[320px] md:max-w-[400px] lg:max-w-none mx-auto rounded-full"
               style={{ 
                 background: isDark 
                   ? 'radial-gradient(circle, #1a1a1a 0%, #000000 100%)'
@@ -333,9 +333,9 @@ export function About() {
                     <Image
                       src={isDark ? "/Terra's-light.svg" : "/Terra's.svg"}
                       alt="Terra's Creative Logo"
-                      width={220}
-                      height={90}
-                      className="w-44 md:w-60 lg:w-72 h-auto"
+                      width={180}
+                      height={70}
+                      className="w-32 sm:w-40 md:w-48 lg:w-60 xl:w-72 h-auto"
                       priority
                       style={{ 
                         filter: `drop-shadow(0 0 20px ${glowColor})`
