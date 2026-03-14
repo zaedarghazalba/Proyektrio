@@ -30,7 +30,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-black/30" />
 
       {/* Content - Centered */}
-      <div className="relative z-10 text-center px-4 md:px-6 lg:px-8 max-w-5xl mx-auto w-full">
+      <div className="relative z-10 text-center px-4 md:px-6 lg:px-8 max-w-5xl mx-auto w-full overflow-hidden">
         {/* Logo - Always black for Company Profile */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -57,7 +57,7 @@ export function Hero() {
           transition={{ delay: 0.1, duration: 1.0 }}
           className="overflow-hidden"
         >
-          <h1 className="font-display text-[15vw] sm:text-[13vw] md:text-display-lg lg:text-display-xl text-black uppercase tracking-wider mb-1 md:mb-2 leading-none">
+          <h1 className="font-display text-[15vw] sm:text-[13vw] md:text-display-lg lg:text-display-xl uppercase tracking-wider mb-1 md:mb-2 leading-none" style={{ color: 'black' }}>
             {t("line1")}
           </h1>
         </motion.div>
@@ -70,7 +70,7 @@ export function Hero() {
           transition={{ delay: 0.3, duration: 1.0 }}
           className="overflow-hidden"
         >
-          <h1 className="font-display text-[15vw] sm:text-[13vw] md:text-display-lg lg:text-display-xl text-black uppercase tracking-wider mb-4 md:mb-6 leading-none">
+          <h1 className="font-display text-[15vw] sm:text-[13vw] md:text-display-lg lg:text-display-xl uppercase tracking-wider mb-4 md:mb-6 leading-none" style={{ color: 'black' }}>
             {t("line2")}
           </h1>
         </motion.div>

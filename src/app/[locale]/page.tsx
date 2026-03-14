@@ -66,7 +66,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="bg-black min-h-screen overflow-x-hidden">
       {/* Preloader */}
       <Preloader onComplete={handlePreloaderComplete} />
 
@@ -74,7 +74,7 @@ export default function HomePage() {
       <div className={`transition-opacity duration-1000 ${preloaderComplete ? "opacity-100" : "opacity-0"}`}>
         <Navbar loaded={preloaderComplete} />
 
-        <main>
+        <main className="overflow-x-hidden">
           <Suspense fallback={<SectionSkeleton type="hero" />}>
             <Hero />
           </Suspense>
