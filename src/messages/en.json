@@ -1,0 +1,137 @@
+{
+  "nav": {
+    "services": "Services",
+    "projects": "Projects",
+    "about": "About",
+    "cta": "Let's Talk"
+  },
+  "hero": {
+    "line1": "DESIGN THAT",
+    "line2": "SPEAKS",
+    "line3": "More than just structure."
+  },
+  "stats": {
+    "projects": "Projects Completed",
+    "awards": "International Awards",
+    "countries": "Countries Served",
+    "satisfaction": "Client Satisfaction"
+  },
+  "services": {
+    "title": "Our Services",
+    "s1_title": "Architectural Design",
+    "s1_desc": "Concept to completion, residential & commercial.",
+    "s2_title": "Interior Architecture",
+    "s2_desc": "Spatial curation with materiality and light.",
+    "s3_title": "Urban Planning",
+    "s3_desc": "Large-scale masterplans and public space design."
+  },
+  "projects": {
+    "title": "Selected Works",
+    "view_project": "View Project",
+    "interested": "Interested in this project?",
+    "interestedMessage": "Hello DROPINK, I'm interested in {project}",
+    "contactUs": "Contact Us",
+    "slugs": {
+      "houseModern": "modern-minimalist-house",
+      "luxuryHome": "luxury-family-home",
+      "livingRoom": "contemporary-living-room",
+      "staircaseDining": "staircase-dining-area"
+    },
+    "houseModern": {
+      "title": "Modern Minimalist House",
+      "category": "Residential",
+      "description": "A 2-story modern minimalist house with clean white facade and warm wood accents. This design prioritizes natural lighting and good air circulation.",
+      "challenge": "Creating a modern design that remains harmonious with the green surroundings.",
+      "solution": "We used natural materials like wood on the ceiling and decorative screen to blend with nature.",
+      "features": {
+        "modernFacade": "Modern minimalist facade",
+        "woodCeiling": "Wood ceiling on balcony",
+        "glassBalcony": "Glass railing balcony",
+        "decorativeScreen": "Decorative screen carport",
+        "greenSurroundings": "Green lush surroundings",
+        "twoStory": "Two-story design"
+      }
+    },
+    "luxuryHome": {
+      "title": "Luxury Family Home",
+      "category": "Residential",
+      "description": "A luxurious family home with elegant decorative patterned wall. Equipped with 2-car carport and beautiful front garden.",
+      "challenge": "Designing a luxury home that remains comfortable for family in a lush environment.",
+      "solution": "Design with decorative wall as focal point, plus warm exterior lighting.",
+      "features": {
+        "patternedWall": "Decorative patterned wall",
+        "doubleCarport": "Double car carport",
+        "frontGarden": "Flowering front garden",
+        "warmLighting": "Warm exterior lights",
+        "greenEnvironment": "Lush green environment",
+        "luxuryDesign": "Modern luxury design"
+      }
+    },
+    "livingRoom": {
+      "title": "Contemporary Living Room",
+      "category": "Interior",
+      "description": "A contemporary living room with modern grey sofa and textured wall. Equipped with artwork panel and perfect lighting.",
+      "challenge": "Creating an elegant living room that remains comfortable for family.",
+      "solution": "Combination of neutral colors with textured wall and artwork as focal point.",
+      "features": {
+        "modernSofa": "Modern grey sofa",
+        "texturedWall": "Textured accent wall",
+        "artworkPanel": "4-panel artwork",
+        "glassTable": "Glass coffee table",
+        "arcLamp": "Arc floor lamp",
+        "recessedLighting": "Recessed ceiling lights"
+      }
+    },
+    "staircaseDining": {
+      "title": "Staircase & Dining Area",
+      "category": "Interior",
+      "description": "A modern staircase with glass railing and wooden steps. Integrated with minimalist and elegant dining area.",
+      "challenge": "Designing a safe yet aesthetic staircase that doesn't make the space feel cramped.",
+      "solution": "Glass railing provides an open feel while wooden steps add warmth.",
+      "features": {
+        "glassRailing": "Glass railing system",
+        "woodenSteps": "Wooden stair steps",
+        "metalStructure": "Black metal structure",
+        "diningTable": "Minimalist dining table",
+        "pendantLight": "Linear pendant light",
+        "minimalistDecor": "Minimalist decoration"
+      }
+    }
+  },
+  "about": {
+    "label": "About",
+    "title": "Creating spaces that inspire life",
+    "description": "DROPINK Studio is a premium architecture firm focused on meaningful and sustainable design. We believe every space has a story to tell.",
+    "experience": "Years Experience",
+    "team": "Team Members",
+    "clients": "Happy Clients"
+  },
+  "testimonials": {
+    "title": "What Clients Say",
+    "t1_text": "DROPINK transformed our vision into reality. The result exceeded our expectations.",
+    "t1_author": "Budi Santoso",
+    "t1_role": "CEO, Property Indonesia",
+    "t2_text": "Professional, creative, and incredibly detail-oriented. Highly recommended.",
+    "t2_author": "Siti Rahma",
+    "t2_role": "Director, Art Space Jakarta"
+  },
+  "cta": {
+    "heading": "Ready to build something iconic?",
+    "button": "Start a Project"
+  },
+  "footer": {
+    "services": "Services",
+    "company": "Company",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "copyright": "© 2026 DROPINK Studio. All rights reserved."
+  },
+  "contact": {
+    "whatsapp_message": "Hello DROPINK, I'd like to discuss my project."
+  },
+  "common": {
+    "view": "VIEW",
+    "drag": "DRAG"
+  }
+}

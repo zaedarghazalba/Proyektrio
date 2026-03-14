@@ -1,0 +1,137 @@
+{
+  "nav": {
+    "services": "Layanan",
+    "projects": "Proyek",
+    "about": "Tentang",
+    "cta": "Hubungi Kami"
+  },
+  "hero": {
+    "line1": "DESAIN YANG",
+    "line2": "BERBICARA",
+    "line3": "Lebih dari sekadar struktur."
+  },
+  "stats": {
+    "projects": "Proyek Selesai",
+    "awards": "Penghargaan",
+    "countries": "Negara",
+    "satisfaction": "Kepuasan Klien"
+  },
+  "services": {
+    "title": "Layanan Kami",
+    "s1_title": "Desain Arsitektur",
+    "s1_desc": "Konsep hingga penyelesaian, residensial & komersial.",
+    "s2_title": "Arsitektur Interior",
+    "s2_desc": "Kurasi ruang dengan materialitas dan cahaya.",
+    "s3_title": "Perencanaan Kota",
+    "s3_desc": "Masterplan skala besar dan desain ruang publik."
+  },
+  "projects": {
+    "title": "Karya Pilihan",
+    "view_project": "Lihat Proyek",
+    "interested": "Tertarik dengan proyek ini?",
+    "interestedMessage": "Halo DROPINK, saya tertarik dengan {project}",
+    "contactUs": "Hubungi Kami",
+    "slugs": {
+      "houseModern": "rumah-modern",
+      "luxuryHome": "rumah-mewah",
+      "livingRoom": "ruang-tamu",
+      "staircaseDining": "tangga-makan"
+    },
+    "houseModern": {
+      "title": "Modern Minimalist House",
+      "category": "Residensial",
+      "description": "Rumah minimalis modern 2 lantai dengan fasad putih bersih dan aksen kayu yang hangat. Desain ini mengutamakan pencahayaan alami dan sirkulasi udara yang baik.",
+      "challenge": "Menciptakan desain modern yang tetap harmonis dengan lingkungan hijau di sekitarnya.",
+      "solution": "Kami menggunakan material natural seperti kayu pada ceiling dan decorative screen untuk menyatu dengan alam.",
+      "features": {
+        "modernFacade": "Fasad modern minimalis",
+        "woodCeiling": "Wood ceiling pada balkon",
+        "glassBalcony": "Glass railing balkon",
+        "decorativeScreen": "Decorative screen carport",
+        "greenSurroundings": "Lingkungan hijau rindang",
+        "twoStory": "Desain 2 lantai"
+      }
+    },
+    "luxuryHome": {
+      "title": "Luxury Family Home",
+      "category": "Residensial",
+      "description": "Rumah mewah untuk keluarga dengan decorative patterned wall yang elegan. Dilengkapi carport untuk 2 mobil dan taman depan yang indah.",
+      "challenge": "Merancang rumah mewah yang tetap nyaman untuk keluarga dengan lingkungan yang asri.",
+      "solution": "Desain dengan decorative wall sebagai focal point, ditambah pencahayaan eksterior yang hangat.",
+      "features": {
+        "patternedWall": "Decorative patterned wall",
+        "doubleCarport": "Carport 2 mobil",
+        "frontGarden": "Taman depan berbunga",
+        "warmLighting": "Lampu eksterior hangat",
+        "greenEnvironment": "Lingkungan asri",
+        "luxuryDesign": "Desain mewah modern"
+      }
+    },
+    "livingRoom": {
+      "title": "Contemporary Living Room",
+      "category": "Interior",
+      "description": "Ruang tamu kontemporer dengan sofa modern abu-abu dan dinding bertekstur. Dilengkapi dengan artwork panel dan pencahayaan yang sempurna.",
+      "challenge": "Menciptakan ruang tamu yang elegan namun tetap nyaman untuk keluarga.",
+      "solution": "Kombinasi warna netral dengan textured wall dan artwork yang menjadi focal point.",
+      "features": {
+        "modernSofa": "Modern grey sofa",
+        "texturedWall": "Textured accent wall",
+        "artworkPanel": "4-panel artwork",
+        "glassTable": "Glass coffee table",
+        "arcLamp": "Arc floor lamp",
+        "recessedLighting": "Recessed ceiling lights"
+      }
+    },
+    "staircaseDining": {
+      "title": "Staircase & Dining Area",
+      "category": "Interior",
+      "description": "Tangga modern dengan glass railing dan wooden steps. Terintegrasi dengan area dining yang minimalis dan elegan.",
+      "challenge": "Merancang tangga yang aman namun tetap estetis dan tidak membuat ruang terasa sempit.",
+      "solution": "Glass railing memberikan kesan terbuka sementara wooden steps menambah kehangatan.",
+      "features": {
+        "glassRailing": "Glass railing system",
+        "woodenSteps": "Wooden stair steps",
+        "metalStructure": "Black metal structure",
+        "diningTable": "Minimalist dining table",
+        "pendantLight": "Linear pendant light",
+        "minimalistDecor": "Minimalist decoration"
+      }
+    }
+  },
+  "about": {
+    "label": "Tentang",
+    "title": "Menciptakan ruang yang menginspirasi kehidupan",
+    "description": "DROPINK Studio adalah studio arsitektur premium yang berfokus pada desain yang bermakna dan berkelanjutan. Kami percaya bahwa setiap ruang memiliki cerita untuk diceritakan.",
+    "experience": "Tahun Pengalaman",
+    "team": "Anggota Tim",
+    "clients": "Klien Puas"
+  },
+  "testimonials": {
+    "title": "Apa Kata Klien",
+    "t1_text": "DROPINK mengubah visi kami menjadi kenyataan. Hasilnya melebihi ekspektasi.",
+    "t1_author": "Budi Santoso",
+    "t1_role": "CEO, Property Indonesia",
+    "t2_text": "Profesional, kreatif, dan sangat perhatian terhadap detail. Sangat direkomendasikan.",
+    "t2_author": "Siti Rahma",
+    "t2_role": "Director, Art Space Jakarta"
+  },
+  "cta": {
+    "heading": "Siap membangun sesuatu yang ikonik?",
+    "button": "Mulai Proyek"
+  },
+  "footer": {
+    "services": "Layanan",
+    "company": "Perusahaan",
+    "contact": "Kontak",
+    "privacy": "Kebijakan Privasi",
+    "terms": "Syarat & Ketentuan",
+    "copyright": "© 2026 DROPINK Studio. Hak cipta dilindungi."
+  },
+  "contact": {
+    "whatsapp_message": "Halo DROPINK, saya ingin mendiskusikan proyek saya."
+  },
+  "common": {
+    "view": "LIHAT",
+    "drag": "GESER"
+  }
+}
