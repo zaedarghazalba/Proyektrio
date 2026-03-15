@@ -2,7 +2,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import { viewport, fadeUp, staggerDefault } from "@/lib/motion";
 import { SplitText } from "@/components/common/SplitText";
 import Image from "next/image";
@@ -13,44 +13,17 @@ export function About() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
   
-  // Invert colors: dark theme = dark elements, light theme = light elements
   const primaryColor = isDark ? '#000000' : '#ffffff';
   const secondaryColor = isDark ? '#333333' : '#e0e0e0';
   const tertiaryColor = isDark ? '#1a1a1a' : '#f5f5f5';
   const accentColor = isDark ? '#666666' : '#999999';
-  const glowColor = isDark 
-    ? 'rgba(0,0,0,0.3)' 
-    : 'rgba(255,255,255,0.3)';
+  const glowColor = isDark ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.3)';
 
   const stats = [
     { value: "1", label: t("experience") },
     { value: "4", label: t("team") },
     { value: "50+", label: t("clients") },
   ];
-
-  // Animation variants for logo container
-  const logoVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.8, rotateY: -30 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      rotateY: 0,
-      transition: {
-        duration: 1.2,
-        ease: [0.22, 1, 0.36, 1],
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const ringVariants: Variants = {
-    hidden: { scale: 0, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: { duration: 1.5, ease: "easeOut" }
-    }
-  };
 
   return (
     <section id="about" className="py-12 md:py-20 lg:py-32 px-4 md:px-8 lg:px-16 bg-black">
@@ -78,15 +51,15 @@ export function About() {
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
           
-          {/* Left Column - Animated Logo Display */}
+          {/* Left Column - Simplified Animated Logo Display */}
           <motion.div
-            variants={logoVariants}
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={viewport}
+            transition={{ duration: 0.8 }}
             className="relative w-full max-w-md mx-auto lg:max-w-none"
           >
-            {/* Main Container with Theme-Inverted Background */}
+            {/* Main Container */}
             <div 
               className="relative w-full aspect-square max-w-[280px] sm:max-w-[320px] md:max-w-[400px] lg:max-w-none mx-auto rounded-full"
               style={{ 
@@ -95,297 +68,56 @@ export function About() {
                   : 'radial-gradient(circle, #f5f5f5 0%, #ffffff 100%)'
               }}
             >
-              
-              {/* Animated Gradient Background */}
+              {/* Outer Rotating Circle */}
               <motion.div
-                className="absolute inset-0 rounded-full opacity-20"
-                animate={{
-                  background: [
-                    `radial-gradient(circle, ${primaryColor} 0%, transparent 70%)`,
-                    `radial-gradient(circle, ${accentColor} 0%, transparent 70%)`,
-                    `radial-gradient(circle, ${primaryColor} 0%, transparent 70%)`,
-                  ]
-                }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-4 rounded-full"
+                style={{ border: `1px solid ${secondaryColor}` }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+              />
+              
+              {/* Inner Dashed Circle */}
+              <motion.div
+                className="absolute inset-12 rounded-full"
+                style={{ border: `2px dashed ${tertiaryColor}` }}
+                animate={{ rotate: -360 }}
+                transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
               />
 
-              {/* Outer Rotating Circle with Glow */}
-              <motion.div
-                variants={ringVariants}
-                className="absolute inset-0"
-              >
-                <motion.div
-                  className="w-full h-full rounded-full"
-                  style={{ 
-                    border: `1px solid ${secondaryColor}`,
-                    boxShadow: `0 0 30px ${glowColor}`
-                  }}
-                  animate={{ 
-                    rotate: 360,
-                    borderColor: [secondaryColor, accentColor, secondaryColor]
-                  }}
-                  transition={{ 
-                    rotate: { duration: 50, repeat: Infinity, ease: "linear" },
-                    borderColor: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-                  }}
-                />
-              </motion.div>
-              
-              {/* Second Ring - Counter Rotate */}
-              <motion.div
-                variants={ringVariants}
-                className="absolute inset-6"
-              >
-                <motion.div
-                  className="w-full h-full rounded-full border-2 border-dashed"
-                  style={{ borderColor: tertiaryColor }}
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
-                />
-              </motion.div>
-
-              {/* Third Ring - Elliptical */}
-              <motion.div
-                variants={ringVariants}
-                className="absolute inset-12"
-              >
-                <motion.div
-                  className="w-full h-full rounded-full"
-                  style={{ border: `1px solid ${secondaryColor}` }}
-                  animate={{ 
-                    rotate: 360,
-                    scaleX: [1, 0.95, 1],
-                    scaleY: [1, 1.05, 1]
-                  }}
-                  transition={{ 
-                    rotate: { duration: 40, repeat: Infinity, ease: "linear" },
-                    scaleX: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-                    scaleY: { duration: 6, repeat: Infinity, ease: "easeInOut" }
-                  }}
-                />
-              </motion.div>
-
-              {/* Fourth Ring - Segmented */}
-              <motion.div
-                variants={ringVariants}
-                className="absolute inset-20"
-              >
-                <motion.div
-                  className="w-full h-full rounded-full"
-                  style={{ 
-                    border: `2px solid ${tertiaryColor}`,
-                    borderTopColor: accentColor,
-                    borderBottomColor: secondaryColor
-                  }}
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                />
-              </motion.div>
-
-              {/* Orbiting Dots */}
-              {[0, 1, 2, 3].map((i) => (
-                <motion.div
-                  key={i}
-                  className="absolute"
-                  style={{
-                    top: '50%',
-                    left: '50%',
-                    width: '100%',
-                    height: '100%',
-                  }}
-                  animate={{ rotate: 360 }}
-                  transition={{ 
-                    duration: 20 + i * 5, 
-                    repeat: Infinity, 
-                    ease: "linear",
-                    delay: i * 0.5
-                  }}
-                >
-                  <motion.div
-                    className="absolute w-2 h-2 rounded-full"
-                    style={{ 
-                      top: i % 2 === 0 ? '0%' : 'auto',
-                      bottom: i % 2 === 1 ? '0%' : 'auto',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      background: `radial-gradient(circle, ${primaryColor} 0%, ${accentColor} 100%)`
-                    }}
-                    animate={{ 
-                      scale: [1, 1.5, 1],
-                      opacity: [0.6, 1, 0.6]
-                    }}
-                    transition={{ 
-                      scale: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 },
-                      opacity: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: i * 0.3 }
-                    }}
-                  />
-                </motion.div>
-              ))}
-
-              {/* Pulsing Corner Squares */}
-              {[
-                { top: '10%', left: '10%' },
-                { top: '10%', right: '10%' },
-                { bottom: '10%', left: '10%' },
-                { bottom: '10%', right: '10%' },
-              ].map((pos, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-8 h-8"
-                  style={pos}
-                  animate={{ 
-                    scale: [1, 1.2, 1],
-                    rotate: [0, 90, 0],
-                    opacity: [0.3, 0.8, 0.3]
-                  }}
-                  transition={{ 
-                    duration: 4, 
-                    repeat: Infinity, 
-                    ease: "easeInOut",
-                    delay: i * 0.5
-                  }}
-                >
-                  <motion.div
-                    className="absolute inset-2"
-                    style={{ border: `1px solid ${secondaryColor}` }}
-                    animate={{ 
-                      scale: [1, 0.8, 1],
-                      rotate: [0, -45, 0]
-                    }}
-                    transition={{ 
-                      duration: 4, 
-                      repeat: Infinity, 
-                      ease: "easeInOut",
-                      delay: i * 0.5 + 0.25
-                    }}
-                  />
-                </motion.div>
-              ))}
-
-              {/* Floating Geometric Shapes */}
-              {[
-                { top: '20%', left: '25%', size: 'w-3 h-3', shouldRotate: true },
-                { top: '60%', left: '15%', size: 'w-2 h-2', shouldRotate: false },
-                { top: '30%', right: '20%', size: 'w-2 h-2', shouldRotate: true },
-                { bottom: '25%', left: '30%', size: 'w-3 h-3', shouldRotate: false },
-                { bottom: '35%', right: '25%', size: 'w-2 h-2', shouldRotate: true },
-              ].map((shape, i) => (
-                <motion.div
-                  key={i}
-                  className={`absolute ${shape.size} rounded-full`}
-                  style={{ 
-                    top: shape.top, 
-                    left: shape.left,
-                    right: shape.right,
-                    bottom: shape.bottom,
-                    background: `linear-gradient(135deg, ${primaryColor} 0%, ${accentColor} 100%)`
-                  }}
-                  animate={{ 
-                    y: shape.shouldRotate ? [0, -25, 0] : [0, -15, 0],
-                    x: shape.shouldRotate ? [0, 10, 0] : [0, -10, 0],
-                    rotate: shape.shouldRotate ? [0, 180, 360] : [0, 45, 0],
-                    opacity: [0.4, 1, 0.4]
-                  }}
-                  transition={{ 
-                    duration: 3.5 + i * 0.5, 
-                    repeat: Infinity, 
-                    ease: "easeInOut",
-                    delay: i * 0.3
-                  }}
-                />
-              ))}
-
-              {/* Center Logo Container with 3D Effect */}
+              {/* Center Logo */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <motion.div
-                  className="relative"
-                  animate={{
-                    rotateX: [0, 5, 0, -5, 0],
-                    rotateY: [0, -5, 0, 5, 0],
-                    z: [0, 10, 0, -10, 0]
-                  }}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={viewport}
+                  animate={{ y: [0, -10, 0] }}
                   transition={{ 
-                    duration: 8, 
-                    repeat: Infinity, 
-                    ease: "easeInOut"
+                    duration: 0.6, 
+                    delay: 0.2,
+                    y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
                   }}
-                  style={{ perspective: '1000px' }}
+                  className="relative z-10"
                 >
-                  {/* Glow Effect Behind Logo */}
-                  <motion.div
-                    className="absolute inset-0 blur-xl"
-                    animate={{
-                      opacity: [0.3, 0.6, 0.3],
-                      scale: [1, 1.1, 1]
-                    }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    style={{ 
-                      background: `radial-gradient(circle, ${glowColor} 0%, transparent 70%)`
-                    }}
+                  <Image
+                    src={isDark ? "/Terra's-light.svg" : "/Terra's.svg"}
+                    alt="Terra's Creative Logo"
+                    width={180}
+                    height={70}
+                    className="w-32 sm:w-40 md:w-48 lg:w-60 h-auto"
+                    priority
+                    style={{ filter: `drop-shadow(0 0 15px ${glowColor})` }}
                   />
-                  
-                  {/* Main Logo */}
-                  <motion.div
-                    animate={{ y: [0, -15, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    className="relative z-10"
-                  >
-                    <Image
-                      src={isDark ? "/Terra's-light.svg" : "/Terra's.svg"}
-                      alt="Terra's Creative Logo"
-                      width={180}
-                      height={70}
-                      className="w-32 sm:w-40 md:w-48 lg:w-60 xl:w-72 h-auto"
-                      priority
-                      style={{ 
-                        filter: `drop-shadow(0 0 20px ${glowColor})`
-                      }}
-                    />
-                  </motion.div>
                 </motion.div>
               </div>
 
-              {/* Scanning Line Effect */}
-              <motion.div
-                className="absolute inset-0 overflow-hidden rounded-full"
-                style={{ pointerEvents: 'none' }}
-              >
+              {/* Simple Pulse Rings */}
+              {[0, 1].map((i) => (
                 <motion.div
-                  className="absolute w-full h-1"
-                  animate={{ 
-                    top: ['-10%', '110%'],
-                    opacity: [0, 0.3, 0]
-                  }}
-                  transition={{ 
-                    duration: 4, 
-                    repeat: Infinity, 
-                    ease: "easeInOut",
-                    delay: 2
-                  }}
-                  style={{ 
-                    background: `linear-gradient(90deg, transparent, ${primaryColor}50, transparent)`
-                  }}
-                />
-              </motion.div>
-
-              {/* Ripple Effect */}
-              {[0, 1, 2].map((i) => (
-                <motion.div
-                  key={`ripple-${i}`}
+                  key={i}
                   className="absolute inset-0 rounded-full"
-                  style={{ 
-                    border: `1px solid ${primaryColor}20`
-                  }}
-                  animate={{
-                    scale: [1, 1.5, 2],
-                    opacity: [0.5, 0.2, 0]
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeOut",
-                    delay: i * 1.5
-                  }}
+                  style={{ border: `1px solid ${primaryColor}15` }}
+                  animate={{ scale: [1, 1.3, 1.6], opacity: [0.4, 0.2, 0] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeOut", delay: i * 2 }}
                 />
               ))}
             </div>
@@ -393,7 +125,7 @@ export function About() {
 
           {/* Right Column - Content */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={viewport}
             transition={{ duration: 0.8 }}

@@ -1,9 +1,4 @@
 import createNextIntlPlugin from "next-intl/plugin";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 const withNextIntl = createNextIntlPlugin("./src/i18n.ts");
 
@@ -18,10 +13,14 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
+    formats: ["image/avif", "image/webp"],
   },
-  turbopack: {
-    root: __dirname,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
   },
+  poweredByHeader: false,
+  compress: true,
+  reactProductionProfiling: false,
 };
 
 export default withNextIntl(nextConfig);
